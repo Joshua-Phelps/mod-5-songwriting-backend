@@ -1,10 +1,10 @@
 class VersionsController < ApplicationController
 
     def create
-        byebug 
         version = Version.create(title: "first version", song_id: 1)
         version.recording = params[:recording]
-        render json: version
+        version.save
+        render json: version.recording
     end
 
 
