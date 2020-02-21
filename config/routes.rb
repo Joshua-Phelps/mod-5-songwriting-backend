@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  resources :versions
-  resources :songs
-  resources :collections
-  resources :users
+  # resources :versions
+  # resources :songs
+  # resources :collections
+  # resources :users
+  namespace :api do
+    namespace :v1 do
+      resources :versions
+      resources :songs
+      resources :collections
+      resources :users
+      post '/auth', to: 'auth#create'
+      get '/current_user', to: 'auth#show'
+    end 
+  end 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

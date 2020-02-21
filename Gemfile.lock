@@ -63,6 +63,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.13)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -117,6 +118,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     ipaddress (0.8.3)
     jsonapi-renderer (0.2.2)
+    jwt (2.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -211,6 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
   carrierwave (~> 2.0)
@@ -218,6 +221,7 @@ DEPENDENCIES
   dotenv-rails
   figaro
   fog-aws
+  jwt
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
