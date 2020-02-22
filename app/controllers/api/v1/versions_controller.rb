@@ -1,4 +1,4 @@
-class VersionsController < ApplicationController
+class Api::V1::VersionsController < ApplicationController
 
     def create
         version = Version.create(title: "first version", song_id: 1)
