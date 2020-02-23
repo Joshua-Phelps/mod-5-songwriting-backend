@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 
     def issue_token(user)
-      JWT.encode({user_id: user.id, greeting: "hello"}, 'secret_key', 'HS256')
+      JWT.encode({user_id: user.id}, ENV['JWT_SECRET_KEY'], 'HS256')
     end
   
     def current_user
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
   
     def decoded_token
       begin
-        JWT.decode(token, 'secret_key', true, { :algorithm => 'HS256' })
+        JWT.decode(token, ENV['JWT_SECRET_KEY'], true, { :algorithm => 'HS256' })
       rescue JWT::DecodeError
         [{error: "Invalid Token"}]
       end
