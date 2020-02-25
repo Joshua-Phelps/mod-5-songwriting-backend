@@ -4,7 +4,9 @@ class Api::V1::VersionsController < ApplicationController
         version = Version.create(title: params[:title], song_id: params[:id])
         version.recording = params[:recording]
         version.save
-        render json: version
+        song = version.song
+        sorted_versions = song.versions.order({ created_at: :desc }) 
+        render json: sorted_versions
     end
 
 

@@ -2,7 +2,8 @@ class Api::V1::SongsController < ApplicationController
 
     def show
         song = Song.find(params[:id])
-        render json: song.versions 
+        sorted_versions = song.versions.order({ created_at: :desc }) 
+        render json: sorted_versions
     end
 
     def create
@@ -10,9 +11,9 @@ class Api::V1::SongsController < ApplicationController
         user = collection.user
         song = Song.new(collection_id: params[:collection_id], title: params[:song_title])
         if song.save
-            # sorted_songs = user.songs.sort_by(&:created_at)
+            sorted_collections = user.collections.order({ created_at: :desc })
             sorted_songs = user.songs.order({ created_at: :desc })
-            render json: { id: user.id, username: user.username, collections: user.collections, songs: sorted_songs }
+            render json: { id: user.id, username: user.username, collections: sorted_collections, songs: sorted_songs }
         else 
             # needs error handling 
         end 
@@ -24,7 +25,6 @@ class Api::V1::SongsController < ApplicationController
         song.collection_id = params[:collection_id]
         user = song.collection.user
         if song.save
-            # sorted_songs = user.songs.sort_by(&:created_at)
             sorted_songs = user.songs.order({ created_at: :desc })
             sorted_collections = user.collections.order({ created_at: :desc })
             render json: { id: user.id, username: user.username, collections: sorted_collections, songs: sorted_songs }
