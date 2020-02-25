@@ -27,7 +27,7 @@ class Api::V1::CollectionsController < ApplicationController
     def destroy
         collection = Collection.find(params[:id])
         user = collection.user 
-        collection.songs.each {|song| song.versions.destory_all }
+        collection.songs.each {|song| song.versions.destroy_all }
         collection.songs.destroy_all
         collection.destroy
         sorted_collections = user.collections.order({ created_at: :desc })
