@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_223924) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "", null: false
     t.integer "song_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
