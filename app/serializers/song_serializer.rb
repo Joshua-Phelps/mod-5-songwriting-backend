@@ -1,5 +1,5 @@
 class SongSerializer < ActiveModel::Serializer
-  attributes :id, :title, :lyrics, :collection_id, :number_of_versions, :versions
+  attributes :id, :title, :lyrics, :collection_id, :number_of_versions
   has_many :versions 
 
   def number_of_versions
