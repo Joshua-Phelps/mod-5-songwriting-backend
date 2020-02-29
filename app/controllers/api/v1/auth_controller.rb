@@ -6,9 +6,11 @@ class Api::V1::AuthController < ApplicationController
         if user && user.authenticate(params[:password][:password])
           # issue that user a token\
           token = issue_token(user)
-          sorted_songs = user.songs.order({ created_at: :desc })
-          sorted_collections = user.collections.order({ created_at: :desc })
-          render json: {user: user, jwt: token}
+          # sorted_songs = user.songs.order({ created_at: :desc })
+          # sorted_collections = user.collections.order({ created_at: :desc })
+          # user: ActiveModel::Serializer::CollectionSerializer.new(user, each_serializer: UserSerializer)
+          # render json: {user: user, jwt: token}
+          render json: {user: ActiveModelSerializers::SerializableResource.new(user), jwt: token}
           # render json: {id: user.id, username: user.username, number_of_collections: user.collections.length, collections: sorted_collections, songs: sorted_songs, jwt: token}
         else
           render json: {error: 'That user could not be found'}, status: 401

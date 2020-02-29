@@ -8,10 +8,13 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def create
-        collection = Collection.find(params[:collection_id])
-        user = collection.user
-        song = Song.new(collection_id: params[:collection_id], title: params[:song_title], lyrics: ' ')
+        # collection = Collection.find(params[:collection_id])
+       
+        song = Song.new(song_params)
+        # user = collection.user
+        # song = Song.new(collection_id: params[:collection_id], title: params[:song_title], lyrics: ' ')
         if song.save
+            user = song.collection.user
             # sorted_collections = user.collections.order({ created_at: :desc })
             # sorted_songs = user.songs.order({ created_at: :desc })
             render json: user 
@@ -22,25 +25,28 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def update
-        
         song = Song.find(params[:id])
-        if params[:lyrics]
-            song.lyrics = params[:lyrics]
-            song.save
-            render json: song 
-        else 
-            song.title = params[:song_title]
-            song.collection_id = params[:collection_id]
-            user = song.collection.user
-            if song.save
-                render json: user 
-                # sorted_songs = user.songs.order({ created_at: :desc })
-                # sorted_collections = user.collections.order({ created_at: :desc })
-                # render json: { id: user.id, username: user.username, collections: sorted_collections, songs: sorted_songs }
-            else
-                ## error handle 
-            end 
-        end
+        song.update(song_params)
+        user = song.collection.user
+        render json: user
+        # song = Song.find(params[:id])
+        # if params[:lyrics]
+        #     song.lyrics = params[:lyrics]
+        #     song.save
+        #     render json: song 
+        # else 
+        #     song.title = params[:song_title]
+        #     song.collection_id = params[:collection_id]
+        #     user = song.collection.user
+        #     if song.save
+        #         render json: user 
+        #         # sorted_songs = user.songs.order({ created_at: :desc })
+        #         # sorted_collections = user.collections.order({ created_at: :desc })
+        #         # render json: { id: user.id, username: user.username, collections: sorted_collections, songs: sorted_songs }
+        #     else
+        #         ## error handle 
+        #     end 
+        # end
     end
 
     def destroy
@@ -56,4 +62,10 @@ class Api::V1::SongsController < ApplicationController
             ## error handle 
         end 
     end
+
+    private 
+
+    def song_params
+        params.require(:song).permit(:id, :collection_id, :title, :lyrics)
+    end 
 end

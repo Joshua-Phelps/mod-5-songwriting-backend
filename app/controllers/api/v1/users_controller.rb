@@ -1,8 +1,5 @@
 class Api::V1::UsersController < ApplicationController
 
-    def index
-        
-    end
 
     def create
         user = User.new(
@@ -20,4 +17,5 @@ class Api::V1::UsersController < ApplicationController
         user = User.find(params[:id])
         render json: user
     end
+
 end
