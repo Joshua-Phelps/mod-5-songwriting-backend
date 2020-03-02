@@ -2,14 +2,22 @@ class Api::V1::UsersController < ApplicationController
 
 
     def create
-        user = User.new(
-            username: params[:username][:username],
-            password: params[:password][:password]
-        )
-        if user.save
-            render json: {success: "User has been created"}
-        else
-            render json: {error: "could not create user"}
+        if params[:password] === params[:password2]
+            user = User.new(
+                username: params[:username],
+                password: params[:password]
+            ) 
+            if user.save
+                render json: {success: "User has been created"}
+            else
+                if User.find_by(username: params[:username])
+                    render json: {error: "That username has already been taken. Please choose another"}
+                else 
+                    render json: {error: "could not create user"}
+                end 
+            end 
+        else 
+            render json: {password: "Your passwords do not match"}
         end 
     end
 
