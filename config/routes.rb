@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :versions, only: [:create, :update, :destroy]
       resources :songs, only: [:show, :create, :update, :destroy]
       resources :collections, only: [:create, :update, :destroy]
-      resources :users, only: [:create, :show, :update, :destroy]
+      resources :users, only: [:create, :show, :destroy]
       post '/auth', to: 'auth#create'
       get '/current_user', to: 'auth#show'
     end 

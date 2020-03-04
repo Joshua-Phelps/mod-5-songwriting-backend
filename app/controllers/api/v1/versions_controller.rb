@@ -1,4 +1,5 @@
 class Api::V1::VersionsController < ApplicationController
+    
 
     def create
         version = Version.create(title: params[:title], song_id: params[:id])
@@ -9,7 +10,7 @@ class Api::V1::VersionsController < ApplicationController
             render json: {song: song, versions: sorted_versions} 
             # render json: sorted_versions
         else 
-            ##error handle 
+            render json: {song: song, versions: sorted_versions}, 'test' 
         end 
     end
 
@@ -21,7 +22,7 @@ class Api::V1::VersionsController < ApplicationController
             sorted_versions = song.versions.order({ created_at: :desc }) 
             render json: {song: song, versions: sorted_versions}  
         else
-            ##error handle  
+            render json: {song: song, versions: sorted_versions}, error: 'test'  
         end 
     end
 

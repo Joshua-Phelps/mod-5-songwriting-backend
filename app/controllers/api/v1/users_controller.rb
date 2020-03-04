@@ -1,6 +1,5 @@
 class Api::V1::UsersController < ApplicationController
 
-
     def create
         if params[:password] === params[:password2]
             user = User.new(
@@ -24,6 +23,15 @@ class Api::V1::UsersController < ApplicationController
     def show
         user = User.find(params[:id])
         render json: user
+    end
+
+    def destroy
+        user = User.find(params[:id])
+        user.versions.destroy_all
+        user.songs.destroy_all
+        user.collections.destroy_all
+        user.destroy
+        render json: {success: 'Account destroyed'}
     end
 
     # private 

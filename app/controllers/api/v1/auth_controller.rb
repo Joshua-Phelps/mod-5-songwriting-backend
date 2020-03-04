@@ -1,4 +1,5 @@
 class Api::V1::AuthController < ApplicationController
+  
 
     # Login
       def create
