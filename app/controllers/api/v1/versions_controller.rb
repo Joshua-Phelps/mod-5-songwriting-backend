@@ -10,7 +10,7 @@ class Api::V1::VersionsController < ApplicationController
             render json: {song: song, versions: sorted_versions} 
             # render json: sorted_versions
         else 
-            render json: {song: song, versions: sorted_versions}, 'test' 
+            render json: {song: song, versions: sorted_versions} 
         end 
     end
 
@@ -22,7 +22,7 @@ class Api::V1::VersionsController < ApplicationController
             sorted_versions = song.versions.order({ created_at: :desc }) 
             render json: {song: song, versions: sorted_versions}  
         else
-            render json: {song: song, versions: sorted_versions}, error: 'test'  
+            render json: {song: song, versions: sorted_versions} 
         end 
     end
 
