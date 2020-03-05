@@ -9,8 +9,9 @@ class Api::V1::SongsController < ApplicationController
     def create       
         song = Song.new(song_params)
         if song.save
-            user = song.collection.user
-            render json: user 
+            # user = song.collection.user
+            # render json: user 
+            render json: song
         else 
             # needs error handling 
         end 
@@ -19,8 +20,9 @@ class Api::V1::SongsController < ApplicationController
     def update
         song = Song.find(params[:id])
         song.update(song_params)
-        user = song.collection.user
-        render json: user
+        # user = song.collection.user
+        # render json: user
+        render json: song 
     end
 
     def destroy
@@ -28,9 +30,9 @@ class Api::V1::SongsController < ApplicationController
         user = song.collection.user
         song.versions.destroy_all
         if song.destroy
-            render json: user 
+            render json: {success: 'destroyed'} 
         else
-            ## error handle 
+            render json: {error: 'could not destroy song'}
         end 
     end
 

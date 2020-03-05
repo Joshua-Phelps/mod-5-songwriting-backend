@@ -1,11 +1,9 @@
 class Api::V1::CollectionsController < ApplicationController
 
     def create    
-        user = User.find(params[:user_id])
-        # collection = Collection.new(collection_name: params[:collection_name], user_id: params[:user_id])
         collection = Collection.new(collection_params)
         if collection.save
-            render json: user 
+            render json: collection
         else 
             ##error handle 
         end 
@@ -16,8 +14,9 @@ class Api::V1::CollectionsController < ApplicationController
         # collection.collection_name = params[:collection_name]
         collection.update(collection_params)
         if collection.save
-            user = collection.user 
-            render json: user 
+            render json: collection
+            # user = collection.user 
+            # render json: user 
         else 
             ## error handle
         end 
@@ -29,7 +28,8 @@ class Api::V1::CollectionsController < ApplicationController
         collection.songs.each {|song| song.versions.destroy_all }
         collection.songs.destroy_all
         collection.destroy
-        render json: user
+        render json: {success: 'detroyed'}
+        # render json: user
     end
 
     private 

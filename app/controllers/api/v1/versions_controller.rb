@@ -7,8 +7,7 @@ class Api::V1::VersionsController < ApplicationController
         if version.save
             song = version.song
             sorted_versions = song.versions.order({ created_at: :desc }) 
-            render json: {song: song, versions: sorted_versions} 
-            # render json: sorted_versions
+            render json: version
         else 
             render json: {song: song, versions: sorted_versions} 
         end 
@@ -18,11 +17,9 @@ class Api::V1::VersionsController < ApplicationController
         version = Version.find(params[:id])
         version.title = params[:title]
         if version.save
-            song = version.song
-            sorted_versions = song.versions.order({ created_at: :desc }) 
-            render json: {song: song, versions: sorted_versions}  
+            render json: version 
         else
-            render json: {song: song, versions: sorted_versions} 
+            ### error handle
         end 
     end
 
@@ -30,8 +27,7 @@ class Api::V1::VersionsController < ApplicationController
         version = Version.find(params[:id])
         song = version.song 
         version.destroy
-        sorted_versions = song.versions.order({ created_at: :desc }) 
-        render json: {song: song, versions: sorted_versions}  
+        render json: {success: 'deleted'}
     end
 
 end
