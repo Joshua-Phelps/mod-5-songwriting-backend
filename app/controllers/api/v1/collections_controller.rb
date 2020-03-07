@@ -28,7 +28,10 @@ class Api::V1::CollectionsController < ApplicationController
         collection.songs.each {|song| song.versions.destroy_all }
         collection.songs.destroy_all
         collection.destroy
-        render json: {success: 'detroyed'}
+        sorted_collections = user.collections.order({ created_at: :desc }) 
+        sorted_songs = user.songs.order({ created_at: :desc }) 
+        render json: {collections: sorted_collections, songs: sorted_songs}
+        # render json: {success: 'detroyed'}
         # render json: user
     end
 
