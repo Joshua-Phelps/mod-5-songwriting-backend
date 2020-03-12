@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # resources :versions
-  # resources :songs
-  # resources :collections
-  # resources :users
   namespace :api do
     namespace :v1 do
       resources :versions, only: [:create, :update, :destroy]
