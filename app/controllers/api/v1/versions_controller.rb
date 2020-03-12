@@ -9,7 +9,7 @@ class Api::V1::VersionsController < ApplicationController
             sorted_versions = song.versions.order({ created_at: :desc }) 
             render json: version
         else 
-            render json: {song: song, versions: sorted_versions} 
+            render json: {error: 'There was a problem'}
         end 
     end
 
@@ -19,7 +19,7 @@ class Api::V1::VersionsController < ApplicationController
         if version.save
             render json: version 
         else
-            ### error handle
+            render json: {error: 'There was a problem'}
         end 
     end
 

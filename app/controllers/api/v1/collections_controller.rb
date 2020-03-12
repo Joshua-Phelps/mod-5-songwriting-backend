@@ -4,21 +4,18 @@ class Api::V1::CollectionsController < ApplicationController
         collection = Collection.new(collection_params)
         if collection.save
             render json: collection
-        else 
-            ##error handle 
+        else
+            render json: {error: "There was some problem"} 
         end 
     end
 
     def update
         collection = Collection.find(params[:id])
-        # collection.collection_name = params[:collection_name]
         collection.update(collection_params)
         if collection.save
             render json: collection
-            # user = collection.user 
-            # render json: user 
         else 
-            ## error handle
+            render json: {error: "There was some problem"}
         end 
     end
 
@@ -28,11 +25,7 @@ class Api::V1::CollectionsController < ApplicationController
         collection.songs.each {|song| song.versions.destroy_all }
         collection.songs.destroy_all
         collection.destroy
-        sorted_collections = user.collections.order({ created_at: :desc }) 
-        sorted_songs = user.songs.order({ created_at: :desc }) 
-        render json: {collections: sorted_collections, songs: sorted_songs}
-        # render json: {success: 'detroyed'}
-        # render json: user
+        render json: {success: 'deleted'}
     end
 
     private 

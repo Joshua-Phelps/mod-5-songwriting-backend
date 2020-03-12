@@ -9,20 +9,19 @@ class Api::V1::SongsController < ApplicationController
     def create       
         song = Song.new(song_params)
         if song.save
-            # user = song.collection.user
-            # render json: user 
             render json: song
         else 
-            # needs error handling 
+            render json: {error: "There was some problem"}
         end 
     end
 
     def update
         song = Song.find(params[:id])
-        song.update(song_params)
-        # user = song.collection.user
-        # render json: user
-        render json: song 
+        if song.update(song_params)
+            render json: song 
+        else 
+            render json: {error: "There was some problem"}
+        end 
     end
 
     def destroy
