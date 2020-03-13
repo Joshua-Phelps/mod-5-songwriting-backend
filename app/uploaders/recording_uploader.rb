@@ -12,7 +12,7 @@ class RecordingUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     # "./public/recording/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "#{model.id}"
+    "recordings/#{model.id}"
   end
 
 end
