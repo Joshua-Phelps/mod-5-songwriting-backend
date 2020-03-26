@@ -26,7 +26,7 @@ class Api::V1::SongsController < ApplicationController
 
     def destroy
         song = Song.find(params[:id])
-        user = song.collection.user
+        song.versions.each {|v| v.recording.destroy}
         song.versions.destroy_all
         if song.destroy
             render json: {success: 'destroyed'} 

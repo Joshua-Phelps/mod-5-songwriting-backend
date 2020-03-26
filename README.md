@@ -1,24 +1,11 @@
-# README
+Welcome to Song Control. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an App I built for my final project at Flatiron School. It uses a Rails API backend with a PostgreSQL database and a React frontend. 
 
-Things you may want to cover:
+This app was designed to assist songwriters in their creative process. A user can create multiple versions of a song for easy reference and store them in collections for optimal organization. Each song has lyric formatter using the JavaScript library ChordSheetJS that places chord changes above the words and a tool to look up synonyms, rhymes, and definitions for a chosen word. 
 
-* Ruby version
+Check out the demo at https://www.youtube.com/watch?v=u5eMMfXUyk4
 
-* System dependencies
+Song Control is live at https://song-control-client.herokuapp.com/
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Frontend available at https://github.com/Joshua-Phelps/mod-5-songwriting-client
