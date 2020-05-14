@@ -2,6 +2,7 @@ class Api::V1::SongsController < ApplicationController
 
     def show
         song = Song.find(params[:id])
+        # byebug
         sorted_versions = song.versions.order({ created_at: :desc }) 
         render json: {song: song, versions: sorted_versions}
     end

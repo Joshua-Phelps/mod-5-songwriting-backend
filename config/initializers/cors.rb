@@ -16,4 +16,5 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 end
 
+# origins 'https://song-control-client.herokuapp.com'
 
