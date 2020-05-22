@@ -8,15 +8,15 @@ I wanted to build this app because I am a songwriter myself and was tired of sif
 
 ## Screenshots
 
-![ScreenShot1](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/tree/master/public/images/ScreenShot1.png "Screen Shot 1")
+![ScreenShot1](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/blob/master/public/images/ScreenShot1.png "Screen Shot 1")
 
-![ScreenShot2](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/tree/master/public/images/ScreenShot2.png "Screen Shot 2")
+![ScreenShot2](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/blob/master/public/images/ScreenShot2.png "Screen Shot 2")
 
-![ScreenShot3](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/tree/master/public/images/ScreenShot3.png "Screen Shot 3")
+![ScreenShot3](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/blob/master/public/images/ScreenShot3.png "Screen Shot 3")
 
-![ScreenShot4](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/tree/master/public/images/ScreenShot4.png "Screen Shot 4")
+![ScreenShot4](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/blob/master/public/images/ScreenShot4.png "Screen Shot 4")
 
-![ScreenShot5](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/tree/master/public/images/ScreenShot5.png "Screen Shot 5")
+![ScreenShot5](https://github.com/Joshua-Phelps/mod-5-songwriting-backend/blob/master/public/images/ScreenShot5.png "Screen Shot 5")
 
 ## Tech/framework used
 
