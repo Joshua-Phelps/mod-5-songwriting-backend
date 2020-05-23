@@ -38,7 +38,7 @@ I wanted to build this app because I am a songwriter myself and was tired of sif
 - The recording are hosted on Amazon S3
 
 
-## How to use?
+## 
 
 Check out the [demo](https://youtu.be/181d-tg6OPc)
 
