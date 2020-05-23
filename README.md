@@ -38,15 +38,13 @@ I wanted to build this app because I am a songwriter myself and was tired of sif
 - The recording are hosted on Amazon S3
 
 
-## Credits
- - [ChordSheetJS](https://github.com/martijnversluis/ChordSheetJS)
-
 ## How to use?
-Check out the demo at https://www.youtube.com/watch?v=u5eMMfXUyk4
+
+Check out the [demo](https://youtu.be/181d-tg6OPc)
 
 Website live at https://song-control-client.herokuapp.com/ 
 
-Frontend available at https://github.com/Joshua-Phelps/mod-5-songwriting-client
+[Frontend Repo](https://github.com/Joshua-Phelps/mod-5-songwriting-client)
 
  
 
